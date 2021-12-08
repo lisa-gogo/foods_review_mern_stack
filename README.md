@@ -8,3 +8,13 @@ For API testing, I used insomnia to test GET, POST, PUT AND DELETE. <br/>
 
 For the security :<br/>
 Check the blew link : https://www.mongodb.com/security-best-practices <br/>
+
+I need to go to frontend file to npm start (start in its directory file)<br/>
+
+Something I meet in this project : <br/>
+
+Switch import changes to Routes for es6<br/>
+
+`<Route exact path="/" component={FoodsList} /><br/> <Route path="/foods" component={FoodsList}/>` <br/>
+
+We can't write up code together <br/>
