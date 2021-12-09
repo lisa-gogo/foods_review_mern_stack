@@ -4,7 +4,7 @@ It includes mongodb as database, express and node.js as backend, and react.js as
 It finished with the backend part and can be run on local server: localhost:5000. <br/>
 For API testing, I used insomnia to test GET, POST, PUT AND DELETE. <br/>
 
-`nodemon server` to start 
+`nodemon server` to start
 
 For the security :<br/>
 Check the blew link : https://www.mongodb.com/security-best-practices <br/>
@@ -15,6 +15,6 @@ Something I meet in this project : <br/>
 
 Switch import changes to Routes for es6<br/>
 
-`<Route exact path="/" component={FoodsList} /><br/> <Route path="/foods" component={FoodsList}/>` <br/>
+If we wrote up code in one Route, it shows mistake<br/>
 
-We can't write up code together <br/>
+`<Route exact path="/" component={FoodsList} /><br/> <Route path="/foods" component={FoodsList}/>` <br/>

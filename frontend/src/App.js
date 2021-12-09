@@ -50,7 +50,8 @@ function App() {
 
     <div className="container mt-3">
       <Routes>
-        <Route exact path="/" component={FoodsList} />
+       
+        <Route path="/" component={FoodsList} />
         <Route path="/foods" component={FoodsList}/>
         <Route 
           path="/foods/:id/review"
@@ -65,7 +66,8 @@ function App() {
           element={ <Login login={login} />
           }
         />
-      </Routes>
+        </Routes>
+   
     </div>
   </div>
   );
