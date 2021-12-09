@@ -13,7 +13,6 @@ function FoodsList() {
   useEffect(() => {
     retrieveFoods();
     retrieveCuisines();
-    console.log('good')
   }, []);
 
   const retrieveFoods = () => {
@@ -28,8 +27,9 @@ function FoodsList() {
 
   const retrieveCuisines = () => {
     FoodsDataService.getCuisines()
-      .then(response => {
-        setCuisines(["All Cuisines"].concat(response.data));
+      .then(res => {
+        setCuisines(["All Cuisines"].concat(res.data));
+        console.log(res.data)
       })
       .catch(e => {
         console.log(e);
@@ -63,7 +63,8 @@ function FoodsList() {
   const find = (query, by) => {
     FoodsDataService.find(query, by)
       .then(response => {
-        setFoods(response.data.restaurants);
+        console.log(response)
+        setFoods(response.data.foods);
       })
       .catch(e => {
         console.log(e);
@@ -77,16 +78,26 @@ function FoodsList() {
   };
 
   const findByCuisine = () => {
-    if (searchCuisine == "All Cuisines") {
+    if (searchCuisine ==="All Cuisines") {
       refreshList();
     } else {
       find(searchCuisine, "cuisine")
     }
   }
- 
+  
+  const handleKeyPressZip = (e)=>{
+     if(e.key === 'Enter') {
+      find(searchZip, "zipcode")
+  }}
+   
+  const handleKeyPressName =(e)=>{
+     if(e.key === "Enter"){
+       find(searchName, "name")
+     }
+  }
+
   return (
     <div>
-      <div>Hello</div>
       <div className="row pb-1">
         <div className="input-group col-lg-4">
           <input
@@ -95,12 +106,14 @@ function FoodsList() {
             placeholder="Search by name"
             value={searchName}
             onChange={onChangeSearchName}
+            onKeyPress={e=>handleKeyPressName(e)}
           />
           <div className="input-group-append">
             <button
               className="btn btn-outline-secondary"
               type="button"
               onClick={findByName}
+            
             >
               Search
             </button>
@@ -113,6 +126,7 @@ function FoodsList() {
             placeholder="Search by zip"
             value={searchZip}
             onChange={onChangeSearchZip}
+            onKeyPress={e=>handleKeyPressZip(e)}
           />
           <div className="input-group-append">
             <button

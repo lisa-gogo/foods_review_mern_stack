@@ -50,9 +50,8 @@ function App() {
 
     <div className="container mt-3">
       <Routes>
-       
-        <Route path="/" component={FoodsList} />
-        <Route path="/foods" component={FoodsList}/>
+        <Route exact path="/" element={<FoodsList/>} />
+        <Route exact path="/foods" element={<FoodsList/>}/>
         <Route 
           path="/foods/:id/review"
           element={<AddReview user={user} />}
