@@ -7,7 +7,7 @@ class FoodsDataService {
     }
   
     get(id) {
-      return http.get(`/food?id=${id}`);
+      return http.get(`?id=${id}`);
     }
   
     find(query, by = "name", page = 0) {

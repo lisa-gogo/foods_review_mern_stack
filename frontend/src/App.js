@@ -57,7 +57,7 @@ function App() {
           element={<AddReview user={user} />}
         />
         <Route 
-          path="/foods/:id"
+          exact path="/foods/:id"
           element={<Foods user={user} /> }
         />
         <Route 

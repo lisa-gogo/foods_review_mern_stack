@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import FoodsDataService from"../services/food.js"
 import { Link } from "react-router-dom"
+import Foods from "./foods.js";
 
 
 function FoodsList() {
@@ -29,7 +30,7 @@ function FoodsList() {
     FoodsDataService.getCuisines()
       .then(res => {
         setCuisines(["All Cuisines"].concat(res.data));
-        console.log(res.data)
+       
       })
       .catch(e => {
         console.log(e);
@@ -63,7 +64,6 @@ function FoodsList() {
   const find = (query, by) => {
     FoodsDataService.find(query, by)
       .then(response => {
-        console.log(response)
         setFoods(response.data.foods);
       })
       .catch(e => {
@@ -172,7 +172,7 @@ function FoodsList() {
                     <strong>Address: </strong>{address}
                   </p>
                   <div className="row">
-                  <Link to={"/foods/"+food._id} className="btn btn-primary col-lg-5 mx-1 mb-1">
+                  <Link to={{ pathname:`/foods/"${food._id}`, state:{users: food}}} className="btn btn-primary col-lg-5 mx-1 mb-1">
                     View Reviews
                   </Link>
                   <a target="_blank" href={"https://www.google.com/maps/place/" + address} className="btn btn-primary col-lg-5 mx-1 mb-1">View Map</a>
