@@ -3,11 +3,12 @@ import http from "../http-common"
 
 class FoodsDataService {
     getAll(page = 0) {
-      return http.get(`foods?page=${page}`);
+      return http.get(`?page=${page}`);
     }
   
     get(id) {
-      return http.get(`?id=${id}`);
+      console.log(id)
+      return http.get(`id/${id}`);
     }
   
     find(query, by = "name", page = 0) {

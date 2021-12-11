@@ -1,10 +1,9 @@
 import React,{useState, useEffect} from "react";
 import FoodsDataService from '../services/food'
-import {Link, useLocation} from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
-const Foods = _ => { 
-  const {state} = useLocation();
-  console.log(state)
+const Foods = () => { 
+  let params = useParams();
   const initialFoodState = {
     id: null,
     name: "",
@@ -12,40 +11,39 @@ const Foods = _ => {
     cuisine: "",
     reviews: []
   };
-
   const [food, setFood] = useState (initialFoodState);
 
   const getFood  = id => {
-    console.log(id)
     FoodsDataService.get(id)
       .then(response => {
         setFood(response.data);
       })
       .catch(e => {
         console.log(e);
+        console.log('no')
       });
   };
 
   useEffect(() => {
-    getFood(state.user._id);
-  }, [state]);
+    getFood(params.id);
+  }, [params]);
 
-  const deleteReview = (reviewId, index) => {
-    FoodsDataService.deleteReview(reviewId, state.user.id)
-      .then(response => {
-        setFood((prevState) => {
-          prevState.reviews.splice(index, 1)
-          return({
-            ...prevState
-          })
-        })
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
+  // const deleteReview = (reviewId, index) => {
+  //   FoodsDataService.deleteReview(reviewId, props.user.id)
+  //     .then(response => {
+  //       setFood((prevState) => {
+  //         prevState.reviews.splice(index, 1)
+  //         return({
+  //           ...prevState
+  //         })
+  //       })
+  //     })
+  //     .catch(e => {
+  //       console.log(e);
+  //     });
+  // };
   return (
-    <div>
+    <div> 
       {food ? (
         <div>
           <h5>{food.name}</h5>
@@ -53,7 +51,7 @@ const Foods = _ => {
             <strong>Cuisine: </strong>{food.cuisine}<br/>
             <strong>Address: </strong>{food.address.building} {food.address.street}, {food.address.zipcode}
           </p>
-          <Link to={"/foods/" + state.match + "/review"} className="btn btn-primary">
+          <Link to={"/foods/" + params.id + "/review"} className="btn btn-primary">
             Add Review
           </Link>
           <h4> Reviews </h4>
@@ -69,17 +67,17 @@ const Foods = _ => {
                          <strong>User: </strong>{review.name}<br/>
                          <strong>Date: </strong>{review.date}
                        </p>
-                       {state.user && state.user.id === review.user_id &&
+                       {/* {params && props.user.id === review.user_id &&
                           <div className="row">
                             <a onClick={() => deleteReview(review._id, index)} className="btn btn-primary col-lg-5 mx-1 mb-1">Delete</a>
                             <Link to={{
-                              pathname: "/foods/" + state.match.params.id + "/review",
-                              state: {
+                              pathname: "/foods/" + food._id + "/review",
+                              props: {
                                 currentReview: review
                               }
                             }} className="btn btn-primary col-lg-5 mx-1 mb-1">Edit</Link>
                           </div>                   
-                       }
+                       } */}
                      </div>
                    </div>
                  </div>
