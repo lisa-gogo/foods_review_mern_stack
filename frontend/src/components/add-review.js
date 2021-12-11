@@ -3,7 +3,8 @@ import FoodsDataService from "../services/food";
 import { Link, useParams } from "react-router-dom";
 
 
-const AddReview = props => {
+const AddReview =props=> {
+
 
 
   console.log(props)
@@ -13,10 +14,10 @@ const AddReview = props => {
 
   let editing = false;
 
-  if (props.location ?.state && props.location.state.currentReview) {
-    editing = true;
-    initialReviewState = props.location.state.currentReview.text
-  }
+  // if (props.location?.state && props.location.state.currentReview) {
+  //   editing = true;
+  //   initialReviewState = props.location.state.currentReview.text
+  // }
 
   const [review, setReview] = useState(initialReviewState);
   const [submitted, setSubmitted] = useState(false);
@@ -25,10 +26,8 @@ const AddReview = props => {
     setReview(event.target.value);
   };
 
-  const saveReview = (props) => {
-    console.log('hi')
-     console.log(props)
-     console.log('hi')
+  const saveReview = ({props}) => {
+  
     var data = {
       text: review,
       name: props.user.name,
@@ -61,7 +60,7 @@ const AddReview = props => {
 
   return (
     <div>
-      {props.user ? (
+      {props? (
       <div className="submit-form">
         {submitted ? (
           <div>
