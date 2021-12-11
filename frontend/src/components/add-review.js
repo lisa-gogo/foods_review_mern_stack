@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import FoodsDataService from "../services/food";
 import { Link, useParams } from "react-router-dom";
 
+
 const AddReview = props => {
 
-  let params = useParams();
-  
+
   console.log(props)
+  let params = useParams();
 
   let initialReviewState = ""
 
@@ -25,11 +26,14 @@ const AddReview = props => {
   };
 
   const saveReview = (props) => {
+    console.log('hi')
+     console.log(props)
+     console.log('hi')
     var data = {
       text: review,
       name: props.user.name,
       user_id: props.user.id,
-      restaurant_id: props.match.params.id
+      restaurant_id: params.id
     };
 
     if (editing) {
@@ -62,7 +66,7 @@ const AddReview = props => {
         {submitted ? (
           <div>
             <h4>You submitted successfully!</h4>
-            <Link to={"/restaurants/" + props.match.params.id} className="btn btn-success">
+            <Link to={"/foods/" + params.id} className="btn btn-success">
               Back to Restaurant
             </Link>
           </div>
@@ -80,7 +84,7 @@ const AddReview = props => {
                 name="text"
               />
             </div>
-            <button onClick={saveReview} className="btn btn-success">
+            <button onClick={()=>saveReview(props)} className="btn btn-success">
               Submit
             </button>
           </div>

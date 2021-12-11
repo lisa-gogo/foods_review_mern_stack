@@ -28,7 +28,7 @@ export default class ReviewsDAO {
             console.log('Error occurred while inserting');
            // return 
         } else {
-           console.log('inserted record', res.ops[0]);
+           console.log('inserted record');
           // return 
         }
       })

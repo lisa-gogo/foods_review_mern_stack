@@ -16,7 +16,7 @@ class FoodsDataService {
     } 
   
     createReview(data) {
-      return http.post("/review-new", data);
+      return http.post("/review", data);
     }
   
     updateReview(data) {

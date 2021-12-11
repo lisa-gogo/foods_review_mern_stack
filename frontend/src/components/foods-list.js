@@ -164,7 +164,7 @@ function FoodsList() {
          
           const address = `${food.address.building} ${food.address.street}, ${food.address.zipcode}`;
           return (
-            <div className="col-lg-4 pb-1">
+            <div className="col-lg-4 pb-1" key={food._id}>
               <div className="card">
                 <div className="card-body">
                   <h5 className="card-title">{food.name}</h5>
