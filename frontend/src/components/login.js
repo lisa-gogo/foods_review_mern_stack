@@ -28,7 +28,7 @@ function Login({login}) {
     <div className="submit-form">
     <div>
       <div className="form-group">
-        <label htmlFor="user">Username</label>
+        <label htmlFor="user">Username <p style={{fontSize:'13px'}}>(You can enter any username and ID)</p> </label>
         <input
           type="text"
           className="form-control"

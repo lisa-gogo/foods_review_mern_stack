@@ -7,7 +7,7 @@ const AddReview =props=> {
 
 
 
-  console.log(props)
+  
   let params = useParams();
 
   let initialReviewState = ""
@@ -26,8 +26,8 @@ const AddReview =props=> {
     setReview(event.target.value);
   };
 
-  const saveReview = ({props}) => {
-  
+  const saveReview = () => {
+    console.log(props)
     var data = {
       text: review,
       name: props.user.name,
@@ -60,7 +60,7 @@ const AddReview =props=> {
 
   return (
     <div>
-      {props? (
+      {props.user? (
       <div className="submit-form">
         {submitted ? (
           <div>
@@ -83,7 +83,7 @@ const AddReview =props=> {
                 name="text"
               />
             </div>
-            <button onClick={()=>saveReview(props)} className="btn btn-success">
+            <button onClick={()=>saveReview()} className="btn btn-success">
               Submit
             </button>
           </div>

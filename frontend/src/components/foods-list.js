@@ -128,7 +128,7 @@ function FoodsList() {
   return (
     <div>
       <div className="row pb-1">
-        <div className="input-group col-lg-4">
+        <div className="input-group col-lg-4" style={{marginBottom:'3px'}}>
           <input
             type="text"
             className="form-control"
@@ -139,7 +139,7 @@ function FoodsList() {
           />
           <div className="input-group-append">
             <button
-              className="btn btn-outline-secondary"
+              className="btn btn btn-success"
               type="button"
               onClick={findByName}
             
@@ -148,7 +148,7 @@ function FoodsList() {
             </button>
           </div>
         </div>
-        <div className="input-group col-lg-4">
+        <div className="input-group col-lg-4" style={{marginBottom:'3px'}}>
           <input
             type="text"
             className="form-control"
@@ -159,7 +159,7 @@ function FoodsList() {
           />
           <div className="input-group-append">
             <button
-              className="btn btn-outline-secondary"
+              className="btn btn-success"
               type="button"
               onClick={findByZip}
             >
@@ -167,7 +167,7 @@ function FoodsList() {
             </button>
           </div>
         </div>
-        <div className="input-group col-lg-4">
+        <div className="input-group" >
 
           <select onChange={onChangeSearchCuisine}>
              {cuisines.map(cuisine => {
@@ -178,24 +178,30 @@ function FoodsList() {
           </select>
           <div className="input-group-append">
             <button
-              className="btn btn-outline-secondary"
+              className="btn btn-success"
               type="button"
               onClick={findByCuisine}
             >
               Search
-            </button>
-            <button className="btn btn-outline-secondary"
+            </button> 
+          </div>
+            
+        </div>
+
+      </div>
+      <div className="d-flex mb-2 mt-2 justify-content-center ">
+              <button className="btn btn-info"
             type="button"
             onClick={handlePrePage}
+            style={{height:'40px',width:'120px', color:'white',padding:'0'}}
             >Previous Page</button>
-            <button className="btn btn-outline-secondary"
+            <div className="text-info d-flex justify-content-center align-items-center" style={{margin:'5px'}}> <p >---{page}---</p>  </div>
+            <button className="btn btn-info"
             type="button"
             onClick={handleNextPage}
+            style={{height:'40px',width:'120px',color:'white'}}
             >Next Page</button>
-          </div>
-
-        </div>
-      </div>
+            </div>
       <div className="row">
         {Foods.map((food) => {
          
@@ -210,10 +216,11 @@ function FoodsList() {
                     <strong>Address: </strong>{address}
                   </p>
                   <div className="row">
-                  <Link to={`/foods/${food._id}`}  className="btn btn-primary col-lg-5 mx-1 mb-1">
+                  <Link to={`/foods/${food._id}`} id="view" className="btn btn-warning mb-1">
                     View Reviews
                   </Link>
-                  <a target="_blank" href={"https://www.google.com/maps/place/" + address} className="btn btn-primary col-lg-5 mx-1 mb-1">View Map</a>
+                  <a target="_blank" href={"https://www.google.com/maps/place/" + address} id="map"
+                  className="btn btn-warning">View Map <i class="fas fa-map-marked"></i></a>
                   </div>
                 </div>
               </div>

@@ -27,20 +27,20 @@ function App() {
 
   return (
     <div>
-    <nav className="navbar navbar-expand navbar-dark bg-dark">
-      <a href="/foods" className="navbar-brand">
-        Foods Reviews
+    <nav className="navbar navbar-expand navbar-dark bg-dark" >
+      <a href="/foods" className="navbar-brand" style={{marginLeft:'100px'}}>
+      <i class="fas fa-drumstick-bite"></i> <i class="fas fa-hamburger"></i> <i class="fas fa-pizza-slice" style={{paddingRight:'5px'}}> </i>Restaurants Reviews
       </a>
       <div className="navbar-nav mr-auto">
         <li className="nav-item">
-          <Link to={"/foods"} className="nav-link">
+          {/* <Link to={"/foods"} className="nav-link">
             Restaurants
-          </Link>
+          </Link> */}
         </li>
         <li className="nav-item" >
           { user ? (
             <a href onClick={logout} className="nav-link" style={{cursor:'pointer'}}>
-              Logout {user.name}
+              Logout  user: {user.name}
             </a>
           ) : (            
           <Link to={"/login"} className="nav-link">
