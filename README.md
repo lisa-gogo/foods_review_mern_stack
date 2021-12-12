@@ -5,7 +5,7 @@ It was finished with the backend part and can be run on local server: localhost:
 For API testing, I used insomnia to test GET, POST, PUT AND DELETE. <br/>
 
 ## Deloyment <br/>
-
+Youtube Link : https://www.youtube.com/watch?v=GVqvYzdV2nQ
 `nodemon server` to start <br/>
 `cd frontend`<br/>
 `npm start`<br/>
