@@ -2,11 +2,8 @@ import React, { useState } from "react";
 import FoodsDataService from "../services/food";
 import { Link, useParams } from "react-router-dom";
 
-
 const AddReview =props=> {
-
-
-
+  
   
   let params = useParams();
 

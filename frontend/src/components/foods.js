@@ -54,6 +54,9 @@ const Foods = (props) => {
           <Link to={"/foods/" + params.id + "/review"} className="btn btn-primary">
             Add Review
           </Link>
+          <Link to={"/"} className="btn btn-primary mx-1">
+            Back to Main Page
+          </Link>
           <h4> Reviews </h4>
           <div className="row">
             {food.reviews.length > 0 ? (
