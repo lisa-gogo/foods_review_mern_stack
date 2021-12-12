@@ -10,6 +10,7 @@ function FoodsList() {
   const [searchZip, setSearchZip ] = useState("");
   const [searchCuisine, setSearchCuisine ] = useState("");
   const [cuisines, setCuisines] = useState(["All Cuisines"]);
+  const [page, setPage] = useState(0)
  
   useEffect(() => {
     retrieveFoods();
@@ -84,6 +85,32 @@ function FoodsList() {
       find(searchCuisine, "cuisine")
     }
   }
+
+  const handleNextPage =()=>{
+    console.log(page)
+      setPage(page+1)
+      console.log(page+1)
+      FoodsDataService.getAll(page+1)
+      .then(res => {
+        setFoods(res.data.foods);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
+
+  const handlePrePage=()=>{
+    if(page>=1){
+       setPage(page-1)
+    FoodsDataService.getAll(page-1)
+    .then(res => {
+      setFoods(res.data.foods);
+    })
+    .catch(e => {
+      console.log(e);
+    });
+   }
+  }
   
   const handleKeyPressZip = (e)=>{
      if(e.key === 'Enter') {
@@ -95,6 +122,8 @@ function FoodsList() {
        find(searchName, "name")
      }
   }
+ 
+
 
   return (
     <div>
@@ -155,6 +184,14 @@ function FoodsList() {
             >
               Search
             </button>
+            <button className="btn btn-outline-secondary"
+            type="button"
+            onClick={handlePrePage}
+            >Previous Page</button>
+            <button className="btn btn-outline-secondary"
+            type="button"
+            onClick={handleNextPage}
+            >Next Page</button>
           </div>
 
         </div>

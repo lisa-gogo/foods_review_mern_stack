@@ -22,14 +22,15 @@ export default class FoodsDAO{
         page = 0,
         foodsPerPage = 20,
       } = {}) {
+        console.log(filters)
         let query
         if (filters) {
           if ("name" in filters) {
             query = { $text: { $search: filters["name"] } }
           } else if ("cuisine" in filters) {
-            query = { "cuisine": { $eq: filters["cuisine"] } }
+            query ={ "cuisine": { $eq: filters["cuisine"] }}  
           } else if ("zipcode" in filters) {
-            query = { "address.zipcode": { $eq: filters["zipcode"] } }
+            query={ "address.zipcode": { $eq: filters["zipcode"] } }
           }
         }
         let cursor

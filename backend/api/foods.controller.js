@@ -4,7 +4,8 @@ export default class FoodsController {
   static async apiGetFoods(req, res, next) {
     const foodsPerPage = req.query.foodsPerPage ? parseInt(req.query.foodsPerPage, 10) : 20
     const page = req.query.page ? parseInt(req.query.page, 10) : 0
-
+   
+     console.log(req)
     let filters = {}
     if (req.query.cuisine) {
       filters.cuisine = req.query.cuisine
