@@ -11,6 +11,8 @@ function FoodsList() {
   const [searchCuisine, setSearchCuisine ] = useState("");
   const [cuisines, setCuisines] = useState(["All Cuisines"]);
   const [page, setPage] = useState(0)
+
+
  
   useEffect(() => {
     retrieveFoods();
@@ -127,7 +129,7 @@ function FoodsList() {
 
   return (
     <div>
-      <div className="row pb-1">
+      <div className="row pb-1" style={{padding:'10px'}}>
         <div className="input-group col-lg-4" style={{marginBottom:'3px'}}>
           <input
             type="text"
@@ -167,9 +169,9 @@ function FoodsList() {
             </button>
           </div>
         </div>
-        <div className="input-group" >
+        <div className="input-group col-lg-4" style={{height:'20px'}} >
 
-          <select onChange={onChangeSearchCuisine}>
+          <select className="" onChange={onChangeSearchCuisine} style={{marginLeft:'0',width:"100px",borderColor:'#DCDCDC',borderRadius:'2px'}}>
              {cuisines.map(cuisine => {
                return (
                  <option value={cuisine}> {cuisine.substr(0, 20)} </option>
@@ -181,6 +183,7 @@ function FoodsList() {
               className="btn btn-success"
               type="button"
               onClick={findByCuisine}
+
             >
               Search
             </button> 
@@ -189,7 +192,7 @@ function FoodsList() {
         </div>
 
       </div>
-      <div className="d-flex mb-2 mt-2 justify-content-center ">
+      <div className="d-flex mb-2 mt-2 justify-content-center " style={{padding:'20px'}}>
               <button className="btn btn-info"
             type="button"
             onClick={handlePrePage}
@@ -207,20 +210,21 @@ function FoodsList() {
          
           const address = `${food.address.building} ${food.address.street}, ${food.address.zipcode}`;
           return (
-            <div className="col-lg-4 pb-1" key={food._id}>
-              <div className="card">
-                <div className="card-body">
+            <div className="col-lg-4 pb-1" key={food._id} style={{backgroundColor:'inherit'}}>
+              <div className="card" style={{borderRadius:'15px', border:"1px solid black"}}>
+                <div className="card-body " style={{}}>
                   <h5 className="card-title">{food.name}</h5>
-                  <p className="card-text">
+                  <p className="card-text" >
                     <strong>Cuisine: </strong>{food.cuisine}<br/>
                     <strong>Address: </strong>{address}
                   </p>
                   <div className="row">
-                  <Link to={`/foods/${food._id}`} id="view" className="btn btn-warning mb-1">
+                  <Link id="row" to={`/foods/${food._id}`} id="view" className="btn btn--stripe mb-1 ml-4" style={{border:'black 1px solid',backgroundColor:'#FFFAF0'}}> 
                     View Reviews
                   </Link>
-                  <a target="_blank" href={"https://www.google.com/maps/place/" + address} id="map"
-                  className="btn btn-warning">View Map <i class="fas fa-map-marked"></i></a>
+                  <a target="_blank" href={"https://www.google.com/maps/place/" + address} id="map" 
+                  className="btn btn--stripe  mb-1 ml-3" style={{border:'black 1px solid',backgroundColor:'#FFFAF0'}} >View Map <i class="fas fa-map-marked"></i></a>
+                  
                   </div>
                 </div>
               </div>

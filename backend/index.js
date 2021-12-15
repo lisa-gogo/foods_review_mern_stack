@@ -8,7 +8,7 @@ import ReviewsDAO from "./dao/reviewsDAO.js"
 dotenv.config()
 const MongoClient = mongodb.MongoClient
 
-const port = process.env.PORT || 8000
+const port = process.env.PORT || 5000
 
 MongoClient.connect(
     process.env.FOODSTASTE_DB_URI,

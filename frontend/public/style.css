@@ -1,0 +1,125 @@
+#row {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+
+@-webkit-keyframes stripe-slide {
+  0% {
+    background-position: 0% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes stripe-slide {
+  0% {
+    background-position: 0% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+/* .btn--stripe {
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  border: 2px solid grey;
+  background: transparent;
+  font: inherit;
+  line-height: normal;
+  cursor: pointer;
+  -moz-user-select: text;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 16px 36px 22px;
+  background-color: #fff;
+  color: grey;
+  border: 2px solid #666;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+} */
+
+.btn:-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+.btn--stripe {
+  color: #8a2be2;
+  overflow: hidden;
+  position: relative;
+}
+
+.btn--stripe:after {
+  content: "";
+  display: block;
+  height: 7px;
+  width: 100%;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #8a2be2,
+    #666 1px,
+    transparent 2px,
+    transparent 5px
+  );
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-top: 1px solid #666;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-size: 7px 7px;
+}
+
+.btn--stripe:hover {
+  background-color: #f5f5dc;
+  color: #fff;
+  border-color: black;
+}
+
+.btn--stripe:hover:after {
+  background-image: repeating-linear-gradient(
+    45deg,
+    red,
+    #00ffff 1px,
+    transparent 2px,
+    transparent 5px
+  );
+  border-top: 1px solid black;
+  -webkit-animation: stripe-slide 12s infinite linear forwards;
+  animation: stripe-slide 12s infinite linear forwards;
+}
+
+/* 
+.btn--radius {
+  border-radius: 36px;
+} */
+/*# sourceMappingURL=style.css.map */
+
+body {
+  background-image: url("./bg.jpg");
+  background-size: cover;
+}
+
+#card {
+  border-radius: 50%;
+}

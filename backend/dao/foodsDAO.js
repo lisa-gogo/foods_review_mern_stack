@@ -3,12 +3,14 @@ const ObjectId = mongodb.ObjectId
 let foods // reference to the database 
 
 
+
 export default class FoodsDAO{
     static async injectDB(conn) {
       if (foods) {
         return
       }
       try {
+        console.log(process.env.FOODTASTE_NS)
         foods = await conn.db(process.env.FOODTASTE_NS).collection("restaurants")
       } catch (e) {
         console.error(
