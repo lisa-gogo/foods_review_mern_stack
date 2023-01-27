@@ -7,7 +7,10 @@ import foods from './api/foods.route.js'
 
 const app = express() // higher middle-ware 
 
-app.use(cors()) //middle-ware
+app.use(cors({
+    origin: "*",
+    methods: ["GET","PUT","POST","DELETE"]
+})) //middle-ware
 app.use(express.json()) // equal to body parse 
 
 app.use("/api/v1/foods",foods)

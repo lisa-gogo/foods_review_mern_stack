@@ -13,8 +13,8 @@ const port = process.env.PORT || 5000
 MongoClient.connect(
     process.env.FOODSTASTE_DB_URI,
     {
-        maxPoolSize: 50,
-        wtimeoutMS: 2500,
+        maxPoolSize: 50, // 50 people can connect at a time 
+        wtimeoutMS: 2500, // after 2500ms the timeout 
         useNewUrlParser: true
     }
 )

@@ -5,7 +5,7 @@ let foods // reference to the database
 
 
 export default class FoodsDAO{
-    static async injectDB(conn) {
+    static async injectDB(conn) {// this happens when we run the server
       if (foods) {
         return
       }
