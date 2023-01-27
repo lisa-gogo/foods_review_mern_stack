@@ -5,7 +5,10 @@ It was finished with the backend part and can be run on local server: localhost:
 For API testing, I used insomnia to test GET, POST, PUT AND DELETE. <br/>
 
 ## Deloyment <br/>
-Youtube Link : https://www.youtube.com/watch?v=GVqvYzdV2nQ  <br/>
+Website Link : https://cocky-goldberg-3b81e2.netlify.app/ <br/>
+![alt text](https://github.com/lisa710junyi/foods_review_mern_stack/blob/master/Capture.PNG?raw=true)
+
+
 `nodemon server` to start <br/>
 `cd frontend`<br/>
 `npm start`<br/>
