@@ -28,7 +28,7 @@ function App() {
   return (
     <div>
     <nav className="navbar navbar-expand navbar-dark bg-dark" >
-      <a href="/foods" className="navbar-brand" style={{marginLeft:'100px'}}>
+      <a href="/" className="navbar-brand" style={{marginLeft:'100px'}}>
       <i class="fas fa-drumstick-bite"></i> <i class="fas fa-hamburger"></i> <i class="fas fa-pizza-slice" style={{paddingRight:'5px'}}> </i>Restaurants Reviews
       </a>
       <div className="navbar-nav mr-auto">
